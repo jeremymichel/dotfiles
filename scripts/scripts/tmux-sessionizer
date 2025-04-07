@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
+source $HOME/.shellenv
+
+if [ -z "${TMUX_PROJECTS_PATH}" ]; then
+    TMUX_PROJECTS_PATH=(~/)
+fi
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Code ~/projects -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ${TMUX_PROJECTS_PATHS[@]} -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

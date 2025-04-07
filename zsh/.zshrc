@@ -12,6 +12,10 @@ else
   export EDITOR='nvim'
 fi
 
+if [ ! -f $HOME/.shellenv ]; then
+  touch $HOME/.shellenv
+fi
+
 alias vim="nvim"
 
 sail() {
@@ -37,4 +41,5 @@ function y() {
 
 bindkey -s ^f "tmux-sessionizer\n"
 
-export PATH="$PATH:$HOME/scripts/:$HOME/go/bin/"
+export PATH="$PATH:$HOME/scripts/:$HOME/go/bin/:/usr/local/go/bin"
+
